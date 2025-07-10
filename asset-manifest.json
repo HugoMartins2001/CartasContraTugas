@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/CartasContraTugas/static/css/main.a53dbfb0.css",
+    "main.js": "/CartasContraTugas/static/js/main.5e6b0c10.js",
+    "static/js/453.13413f7b.chunk.js": "/CartasContraTugas/static/js/453.13413f7b.chunk.js",
+    "index.html": "/CartasContraTugas/index.html",
+    "main.a53dbfb0.css.map": "/CartasContraTugas/static/css/main.a53dbfb0.css.map",
+    "main.5e6b0c10.js.map": "/CartasContraTugas/static/js/main.5e6b0c10.js.map",
+    "453.13413f7b.chunk.js.map": "/CartasContraTugas/static/js/453.13413f7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a53dbfb0.css",
+    "static/js/main.5e6b0c10.js"
+  ]
+}
