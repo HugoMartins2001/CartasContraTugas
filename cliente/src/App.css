@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-feature-settings: "liga" off, "calt" off;
+  font-feature-settings: "liga" off, "calt" off;
+}
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-dark: #2c3e50;
+  --shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+  --border-radius: 20px;
+  --border-radius-small: 12px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+body {
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating particles effect */
+.app::before {
+  content: '';
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 50%;
+  top: 20%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+.app::after {
+  content: '';
+  position: fixed;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border-radius: 50%;
+  top: 60%;
+  right: 15%;
+  animation: float 8s ease-in-out infinite reverse;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) translateX(10px) rotate(120deg); }
+  66% { transform: translateY(10px) translateX(-10px) rotate(240deg); }
+}
+
+/* Modern Glassmorphism Components */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-heavy);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  box-shadow: var(--shadow-light);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+}
+
+/* Ultra Modern Buttons */
+.btn {
+  background: var(--secondary-gradient);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  min-width: 120px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(245, 87, 108, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn.secondary {
+  background: var(--accent-gradient);
+  box-shadow: 0 8px 32px rgba(79, 172, 254, 0.3);
+}
+
+.btn.secondary:hover {
+  box-shadow: 0 15px 50px rgba(79, 172, 254, 0.4);
+}
+
+.btn.tertiary {
+  background: var(--dark-gradient);
+  box-shadow: 0 8px 32px rgba(52, 152, 219, 0.3);
+}
+
+.btn.tertiary:hover {
+  box-shadow: 0 15px 50px rgba(52, 152, 219, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Modern Input Fields */
+.input {
+  width: 100%;
+  padding: 18px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-small);
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.input:focus {
+  border-color: rgba(245, 87, 108, 0.6);
+  box-shadow: 0 0 0 4px rgba(245, 87, 108, 0.1);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Animated Home Screen */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+  min-height: 85vh;
+  position: relative;
+}
+
+.logo {
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+  margin-bottom: 20px;
+  text-shadow: 0 0 50px rgba(255, 107, 107, 0.3);
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.logo::after {
+  content: '🃏';
+  position: absolute;
+  top: -20px;
+  right: -60px;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  font-weight: 400;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 400px;
+  position: relative;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+/* Garantir que emojis são sempre exibidos corretamente */
+* {
+  -webkit-font-feature-settings: "liga" off, "calt" off;
+  font-feature-settings: "liga" off, "calt" off;
+}
+
+/* Força emojis nativos para elementos com emojis/ícones */
+.emoji,
+[data-emoji],
+.nav-link,
+.nav-brand h1,
+.page-hero h1,
+.tab-btn,
+.tab-icon,
+.feature-icon,
+.warning-icon,
+.tech-icon,
+.bug-type-icon,
+.btn-icon,
+h1:contains("🎮"),
+h1:contains("💝"),
+h1:contains("🎲"),
+h1:contains("🔧"),
+h2:contains("🎭"),
+h2:contains("⚡"),
+h2:contains("🎪"),
+h2:contains("🎯"),
+h2:contains("🎨"),
+h2:contains("🚀"),
+h2:contains("⚠️"),
+h2:contains("🛠️"),
+h3:contains("💡"),
+h3:contains("🔍"),
+h3:contains("📝") {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols', 'Twemoji Mozilla', 'Noto Emoji', emoji, sans-serif !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-emoji: emoji !important;
+}
+
+/* Específico para elementos de navegação que contêm emojis */
+.nav-link span,
+.nav-brand h1 span,
+.tab-btn span {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', emoji, sans-serif !important;
+  font-variant-emoji: emoji !important;
+  filter: none !important;
+}
+
+/* Força exibição correta de emojis em qualquer h1, h2, h3 que contenha emoji */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', 'Poppins', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', emoji, sans-serif !important;
+}
+
+/* Garantir que emojis não sejam filtrados por gradientes ou outros efeitos */
+.nav-link,
+.tab-btn,
+.page-hero h1,
+.about-hero h1,
+.about-section h2,
+.form-section h3 {
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 !important;
+}
+
+/* Corrigir todos os selects que ficam brancos/invisíveis */
+select, .form-select, .rounds-select {
+  background: rgba(44, 62, 80, 0.9) !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+select option, .form-select option, .rounds-select option {
+  background: #2c3e50 !important;
+  color: #ffffff !important;
+  padding: 10px !important;
+  border: none !important;
+}
+
+select:focus, .form-select:focus, .rounds-select:focus {
+  background: rgba(52, 152, 219, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Garantir que elementos com gradients não afetem emojis */
+.nav-brand h1,
+.nav-link,
+.page-hero h1,
+.logo {
+  -webkit-text-fill-color: unset !important;
+  background-clip: unset !important;
+  -webkit-background-clip: unset !important;
+}
+
+/* Força cor branca para textos com emojis na navegação */
+.nav-brand h1,
+.nav-link,
+.status-indicator {
+  color: #ffffff !important;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .tabs-nav {
+    gap: 8px;
+    padding: 0 15px;
+  }
+  
+  .tab-btn {
+    min-width: 120px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .tab-content {
+    padding: 25px 20px;
+    margin: 0 15px;
+  }
+  
+  .tips-grid,
+  .insights-grid,
+  .card-types,
+  .special-mechanics {
+    grid-template-columns: 1fr;
+  }
+  
+  .submissions-example {
+    gap: 8px;
+  }
+  
+  .submission {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .submission .card {
+    margin: 0;
+  }
+}
+
+/* Responsividade para mobile */
+@media (max-width: 480px) {
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .tab-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .tabs-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .tab-btn {
+    width: 200px;
+  }
+}
+
+/* Warnings e mensagens de feedback visuais */
+.warning-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  margin-top: 8px;
+  background: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: var(--border-radius-small);
+  color: #ffc107;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+.warning-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  margin-top: 8px;
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: var(--border-radius-small);
+  color: #dc3545;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+.info-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  margin-top: 8px;
+  background: rgba(13, 202, 240, 0.15);
+  border: 1px solid rgba(13, 202, 240, 0.3);
+  border-radius: var(--border-radius-small);
+  color: #0dcaf0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  margin-top: 8px;
+  background: rgba(25, 135, 84, 0.15);
+  border: 1px solid rgba(25, 135, 84, 0.3);
+  border-radius: var(--border-radius-small);
+  color: #198754;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease-out;
+}
+
+.info-icon,
+.error-icon,
+.success-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Campos com erro */
+.form-input.error,
+.form-textarea.error,
+.player-input.error,
+.room-input.error,
+.rounds-select.error {
+  border-color: rgba(220, 53, 69, 0.6) !important;
+  background: rgba(220, 53, 69, 0.1) !important;
+}
+
+.form-input.error:focus,
+.form-textarea.error:focus,
+.player-input.error:focus,
+.room-input.error:focus,
+.rounds-select.error:focus {
+  box-shadow: 0 0 0 4px rgba(220, 53, 69, 0.15) !important;
+}
+
+/* Campos com warning */
+.form-input.warning,
+.form-textarea.warning,
+.player-input.warning,
+.room-input.warning {
+  border-color: rgba(255, 193, 7, 0.6) !important;
+  background: rgba(255, 193, 7, 0.1) !important;
+}
+
+.form-input.warning:focus,
+.form-textarea.warning:focus,
+.player-input.warning:focus,
+.room-input.warning:focus {
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.15) !important;
+}

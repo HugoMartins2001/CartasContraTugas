@@ -1,0 +1,30 @@
+{
+  "name": "cartas-contra-tugas-servidor",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cartas",
+    "jogo",
+    "portugal",
+    "online"
+  ],
+  "author": "Hugo, Carlos",
+  "license": "MIT",
+  "description": "Servidor para o jogo Cartas Contra Tugas Remaster",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1",
+    "socket.io": "^4.8.1",
+    "uuid": "^10.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
